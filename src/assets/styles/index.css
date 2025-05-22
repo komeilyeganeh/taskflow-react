@@ -3,6 +3,6 @@
     themes: light --default, night --prefersdark;
 }
 
-@custom-variant dark (&:where([data-theme=night], [data-theme=night] *));
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 

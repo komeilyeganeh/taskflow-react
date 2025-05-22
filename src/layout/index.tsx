@@ -3,10 +3,10 @@ import { Outlet } from "react-router"
 
 export const Layout = () => {
     // render the header and the outlet (the pages)
-    return <>
+    return <div className="flex flex-col h-screen">
         <Header />
-        <main>
+        <main className="flex-1 pb-6">
             <Outlet />
         </main>
-    </>
+    </div>
 }
