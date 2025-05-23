@@ -1,12 +1,18 @@
 import { useState } from "react";
 import { Modal } from "../ui/modal/modal"
+import { useAuth } from "@/context/auth-context";
+import { useNavigate } from "react-router";
 
 export const NewBoard = () => {
+    const { isAuthenticated } = useAuth()
     const [open, setOpen] = useState(false);
+    const navigate = useNavigate()
+
     // return jsx
     return (
         <>
-            <button className="btn btn-success" onClick={() => setOpen(true)}>Create Board</button>
+            {isAuthenticated && <button className="btn btn-success" onClick={() => setOpen(true)}>Create Board</button>}
+            {!isAuthenticated && <button className="btn btn-success" onClick={() => navigate('/login')}>Login to create board</button>}
             <Modal title="Create a new board" size="md" open={open} onClose={() => setOpen(false)}>
                 <form className="flex flex-col gap-4">
                     <input type="text" placeholder="Board Title..." className="input outline-none w-full" />

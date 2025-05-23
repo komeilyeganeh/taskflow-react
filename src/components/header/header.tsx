@@ -1,5 +1,4 @@
 import { Link } from "react-router"
-import { HeaderActions } from "./header-actions"
 import { FaRegMoon } from "react-icons/fa"
 import { useTheme } from "@/context/theme-context";
 import { MdSunny } from "react-icons/md";
@@ -17,7 +16,7 @@ export const Header = () => {
                         {theme === "light" ? <FaRegMoon size={22} /> : <MdSunny size={22} />}
                     </button>
                 </div>
-                <HeaderActions />
+                <Link to="/signup" className="link link-hover btn btn-primary">SignUp</Link>
             </div>
         </header>
     )

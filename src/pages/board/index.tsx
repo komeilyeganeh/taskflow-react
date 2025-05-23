@@ -1,14 +1,19 @@
 import { BoardContainer } from "@/components/board/board-container"
+import { useAuth } from "@/context/auth-context"
 import { DndContext } from "@dnd-kit/core"
 import { useState } from "react"
+import { Navigate } from "react-router"
 
 export const Board = () => {
+    const { isAuthenticated } = useAuth()
     const [isDroppable, setIsDroppable] = useState(false)
-    const handleDragEnd = (event: any) => {
-        if (event.over && event.over.id === "droppable") {
-            setIsDroppable(true)
-        }
+    const handleDragEnd = (event: any) => { }
+
+    // if user is not authenticated, redirect to login page
+    if (!isAuthenticated) {
+        return <Navigate to="/signup" />
     }
+
     // return jsx
     return (
         <section className="h-full">
